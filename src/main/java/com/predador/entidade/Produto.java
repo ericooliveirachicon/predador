@@ -7,8 +7,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Entity(name = "produto")
+@Entity
+@Table(name="produto", schema = "predador")
 public class Produto {
 	
 	@Id
@@ -24,6 +26,12 @@ public class Produto {
 	
 	@Column(name = "NOME")
 	private String nome;
+
+	@Override
+	public String toString() {
+		return "Produto [id=" + id + ", precoVenda=" + precoVenda + ", precoCusto=" + precoCusto + ", nome=" + nome
+				+ "]";
+	}
 
 	public Integer getId() {
 		return id;
